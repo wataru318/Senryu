@@ -4,31 +4,18 @@
 <header class="header">
     <div class="container-fluid">
         <div class="row">
-  <a class="header_title" href="{{ route('posts.index') }}"><h1>Market</h1></a>
-    <p class="login_user">こんにちは、{{ \Auth::user()->name }}さん！</p>
-    <ul class="header_nav d-flex">
-        <li>
-          <a href="">
-            投稿一覧
-          </a>
-        </li>
-        <li>
-          <a href="">
-            新規投稿
-          </a>
-        </li>
-        <li>
-          <a href="">
-          投稿
-          </a>
-        </li>
-        <li>
-            <form action="{{ route('logout') }}" method="POST">
+  <a class="header_title" href="{{ route('posts.index') }}"><h1>Micro Blog!</h1></a>
+    <p class="login_user pt-3 pl-3">こんにちは、{{ \Auth::user()->name }}さん！</p>
+    <div class="btn_area ml-auto d-flex">
+            <form class="pt-3" action="{{ route('posts.create') }}" method="get">
                 @csrf
-                <input class="logout_button"  type="submit" value="ログアウト">
+                <input class="btn btn-primary"  type="submit" value="新規投稿">
+                </form>
+            <form class="pt-3 pl-3" action="{{ route('logout') }}" method="POST">
+                @csrf
+                <input class="btn btn-secondary"  type="submit" value="ログアウト">
             </form>
-        </li>
-    </ul>
+    </div>
         </div>
     </div>
 </header>

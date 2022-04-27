@@ -8,8 +8,8 @@
 <ul>
 @forelse($posts as $post)
 <li class="d-block">
-    <p>{{ \Auth::user()->name }}:{{ $post->created_at }}</p>
-    <p>{{ $post->content }}</p>
+    <p class="post_header">{{ \Auth::user()->name }}:{{ $post->created_at }}</p>
+    <p class="post_body">{{ $post->content }}</p>
 </li>
 @empty
 投稿がありません。。。
