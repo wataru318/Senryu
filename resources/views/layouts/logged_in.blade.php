@@ -2,23 +2,24 @@
  
 @section('header')
 <header class="header">
-    <div class="container-">
-  <a class="header_title" href="{{ route('top.index') }}"><h1>Market</h1></a>
+    <div class="container-fluid">
+        <div class="row">
+  <a class="header_title" href="{{ route('posts.index') }}"><h1>Market</h1></a>
     <p class="login_user">こんにちは、{{ \Auth::user()->name }}さん！</p>
-    <ul class="header_nav">
+    <ul class="header_nav d-flex">
         <li>
-          <a href="{{ route('users.show', \Auth::user()->id) }}">
-            プロフィール
+          <a href="">
+            投稿一覧
           </a>
         </li>
         <li>
-          <a href="{{ route('likes.index') }}">
-            お気に入り一覧
+          <a href="">
+            新規投稿
           </a>
         </li>
         <li>
-          <a href="{{ route('users.exhibitions', \Auth::user()->id) }}">
-          出品商品一覧
+          <a href="">
+          投稿
           </a>
         </li>
         <li>
@@ -28,6 +29,7 @@
             </form>
         </li>
     </ul>
+        </div>
     </div>
 </header>
 @endsection

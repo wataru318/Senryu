@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="{{ secure_asset('css/styles.css') }}">
+        <link rel="shortcut icon" href="{{ asset('/favicon.ico')}}">
         <title>@yield('title')</title>
   <title>9章</title>
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
