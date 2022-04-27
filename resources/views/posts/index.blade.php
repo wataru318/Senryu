@@ -7,8 +7,8 @@
 <h1>{{ $title }}</h1>
 <ul>
 @forelse($posts as $post)
-<li class="d-block">
-    <p class="post_header">{{ \Auth::user()->name }}:{{ $post->created_at }}</p>
+<li class="d-block post_list_item">
+    <p class="post_header d-inline">{{ \Auth::user()->name }}:{{ $post->created_at }}</p>
     <p class="post_body">{{ $post->content }}</p>
 </li>
 @empty
