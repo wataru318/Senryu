@@ -28,12 +28,54 @@ class PostController extends Controller
             ]);
     }
     
-    public function store(PostRequest $request){
+    public function store(PostRequest $request)
+    {
+        if($post->user_id !== \Auth::id()){
+            session()->flash('error', '不正な操作が検知されました');
+            return redirect()->route('posts.index');
+        }
         Post::create([
             'user_id' => \Auth::user()->id,
             'content' => $request->content,
             ]);
             session()->flash('success', '投稿したよ！');
             return redirect()->route('posts.index');
+    }
+    
+    public function edit($id){
+        $post = Post::find($id);
+        return view('posts.edit', [
+            'title' => '投稿編集',
+            'post' => $post,
+            ]);
+    }
+    
+    public function update($id, PostRequest $request)
+    {
+        $post = Post::find($id);
+
+        if($post->user_id !== \Auth::id()){
+            session()->flash('error', '不正な操作が検知されました');
+            return redirect()->route('posts.index');
+        }
+        
+        $post->update($request->only([
+            'content']));
+            session()->flash('success', '投稿を更新しました！');
+            return redirect()->route('posts.index');
+    }
+    
+    public function destroy($id)
+    {
+        $post = Post::find($id);
+        
+        if($post->user_id !== \Auth::id()){
+            session()->flash('error', '不正な操作が検知されました');
+            return redirect()->route('posts.index');
+        }
+        
+        $post->delete();
+        \Session::flash('success', '投稿を削除しました');
+        return redirect()->route('posts.index');
     }
 }
