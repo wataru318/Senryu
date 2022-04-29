@@ -12,4 +12,14 @@
 */
 
 Auth::routes();
+
 Route::resource('posts', 'PostController');
+
+Route::resource('users', 'UserController')->only([
+    'show']);
+    
+Route::resource('follows', 'FollowController')->only([
+    'store', 'destroy'
+    ]);
+    
+Route::get('/follower', 'FollowController@followerIndex');

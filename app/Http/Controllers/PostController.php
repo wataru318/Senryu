@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Post;
+use App\User;
+use App\Follow;
 use App\Http\Requests\PostRequest;
 
 class PostController extends Controller
@@ -16,9 +18,11 @@ class PostController extends Controller
     
     public function index(){
         $posts = Post::where('user_id', \Auth::user()->id)->latest()->get();
+        $user = \Auth::user();
         return view('posts.index', [
             'title' => '投稿一覧',
             'posts' => $posts,
+            'recommended_users' => User::recommend($user->id)->get(),
             ]);
     }
     
@@ -30,10 +34,6 @@ class PostController extends Controller
     
     public function store(PostRequest $request)
     {
-        if($post->user_id !== \Auth::id()){
-            session()->flash('error', '不正な操作が検知されました');
-            return redirect()->route('posts.index');
-        }
         Post::create([
             'user_id' => \Auth::user()->id,
             'content' => $request->content,
