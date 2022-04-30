@@ -17,8 +17,9 @@ class PostController extends Controller
     }
     
     public function index(){
-        $posts = Post::where('user_id', \Auth::user()->id)->latest()->get();
         $user = \Auth::user();
+        $follow_users_ids = $user->follow_users->pluck('id');
+        $posts = $user->posts()->orWhereIn('user_id', $follow_users_ids)->latest()->get();
         return view('posts.index', [
             'title' => '投稿一覧',
             'posts' => $posts,

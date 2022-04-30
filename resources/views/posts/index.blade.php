@@ -4,7 +4,6 @@
 
 @section('content')
 <div class="container">
-<h1>{{ $title }}</h1>
 <h2>【おすすめユーザー】</h2>
 <ul class="recommended_users">
 @forelse($recommended_users as $recommend_user)
@@ -13,12 +12,15 @@
 <li>おすすめユーザーがいません！<br>ぜひ外の世界に目を向けましょう！</li>
 @endforelse
 </ul>
+<h1>{{ $title }}</h1>
 <ul>
 @forelse($posts as $post)
 <li class="d-block post_list_item">
-    <p class="post_header d-inline">{{ \Auth::user()->name }}:{{ $post->created_at }}</p>
+    <p class="post_header d-inline">
+        <a href="{{ route('users.show', $post->user_id) }}">{{ $post->user->name }}</a>:{{ $post->created_at }}</p>
     <p class="post_body pt-3">{!! nl2br(e($post->content)) !!}</p>
     <div class="d-flex justify-content-end">
+        @if($post->user_id === \Auth::id())
     <form class="pr-3" method="get" action="{{ route('posts.edit', $post->id) }}">
         @csrf
         <input class="btn btn-primary" type="submit" value="編集">
@@ -28,6 +30,7 @@
         @method('delete')
         <input class="btn btn-danger delete_btn" type="submit" value="削除">
     </form>
+    @endif
     </div>
 </li>
 @empty

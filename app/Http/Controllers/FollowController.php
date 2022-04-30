@@ -19,4 +19,13 @@ class FollowController extends Controller
             \Session::flash('success', 'フォローしました');
             return redirect()->route('users.show', $following_user);
     }
+    
+    public function destroy($id)
+    {
+        $follow = \Auth::user()->follows->where('follow_id', $id)->first();
+        $follow->delete();
+        \Session::flash('success', 'フォロー解除しました');
+        return redirect()->route('users.show', $id);
+        
+    }
 }
