@@ -16,14 +16,21 @@ class PostController extends Controller
         $this->middleware('auth');
     }
     
-    public function index(){
+    public function index(Request $request){
         $user = \Auth::user();
         $follow_users_ids = $user->follow_users->pluck('id');
-        $posts = $user->posts()->orWhereIn('user_id', $follow_users_ids)->latest()->get();
+        $find_word = $request->input('find_word');
+        // dd($posts_content);
+        if(isset($find_word)){
+            $posts = Post::whereIn('user_id', $follow_users_ids)->where('content', 'LIKE', "%{$find_word}%")->latest()->get();
+        } else{
+            $posts = $user->posts()->orWhereIn('user_id', $follow_users_ids)->latest()->get();
+        }
         return view('posts.index', [
             'title' => '投稿一覧',
             'posts' => $posts,
             'recommended_users' => User::recommend($user->id)->get(),
+            'find_word' => $find_word,
             ]);
     }
     

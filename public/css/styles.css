@@ -43,3 +43,7 @@ ul {
     margin: 2em 0;
     padding: 2em;
 }
+
+.find_button {
+    width: 100px;
+}

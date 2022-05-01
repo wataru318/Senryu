@@ -13,6 +13,14 @@
 @endforelse
 </ul>
 <h1>{{ $title }}</h1>
+<form method="get" action="{{ route('posts.index') }}">
+<div class="input-group mb-3">
+  <input name="find_word" value="{{ $find_word }}" type="text" class="form-control" placeholder="投稿内を検索" aria-label="Recipient's username" aria-describedby="button-addon2">
+  <div class="input-group-append">
+    <button class="btn btn-outline-secondary find_button" type="button" id="button-addon2">検索</button>
+  </div>
+</div>
+</form>
 <ul>
 @forelse($posts as $post)
 <li class="d-block post_list_item">
