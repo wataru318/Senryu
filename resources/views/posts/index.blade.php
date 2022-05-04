@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="container">
-<h2>【おすすめユーザー】</h2>
+<h2>おすすめユーザー</h2>
 <ul class="recommended_users">
 @forelse($recommended_users as $recommend_user)
 <li><a href="{{ route('users.show', $recommend_user) }}">{{ $recommend_user->name }}</a></li>
@@ -12,7 +12,7 @@
 <li>おすすめユーザーがいません！<br>ぜひ外の世界に目を向けましょう！</li>
 @endforelse
 </ul>
-<h1>{{ $title }}</h1>
+<h2>{{ $title }}</h2>
 <form method="get" action="{{ route('posts.index') }}">
 <div class="input-group mb-3">
   <input name="find_word" value="{{ $find_word }}" type="text" class="form-control" placeholder="投稿内を検索" aria-label="Recipient's username" aria-describedby="button-addon2">
@@ -45,6 +45,24 @@
 投稿がありません。。。
 @endforelse
 </ul>
+    <div id="cl" class="carousel slide carousel-fade" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#cl" data-slide-to="0" class="active"></li>
+            <li data-target="#cl" data-slide-to="1"></li>
+            <li data-target="#cl" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active"><img src="images/carousel_img1.jpg" class="d-block w-100"></div>
+            <div class="carousel-item"><img src="images/carousel_img2.jpg" class="d-block w-100"></div>
+            <div class="carousel-item"><img src="images/carousel_img3.jpg" class="d-block w-100"></div>
+        </div>
+        <a class="carousel-control-prev" href="#cl" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#cl" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+    </div>
 </div>
 <script>
     $('.delete_btn').click(function(){

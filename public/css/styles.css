@@ -1,4 +1,8 @@
 /*共通部分*/
+body {
+    font-family: "Kokoro";
+}
+
 p {
     word-wrap: break-word;
 }
@@ -17,6 +21,75 @@ ul {
 
 .success {
     color: green;
+}
+
+h2 {
+  position: relative;
+  background: #dfefff;
+  box-shadow: 0px 0px 0px 5px #dfefff;
+  border: dashed 2px white;
+  padding: 0.2em 0.5em;
+  color: #454545;
+  width: fit-content;
+  margin-bottom: 20px
+}
+
+h2:before {
+  content: "";
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  background: url(../images/paper_airplane.png) no-repeat;
+  background-size: contain;
+  margin-right: 8px;
+}
+
+h2:after {
+  position: absolute;
+  content: '';
+  left: -7px;
+  top: -7px;
+  border-width: 0 0 15px 15px;
+  border-style: solid;
+  border-color: #fff #fff #a8d4ff;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
+}
+
+.btn_flat_stripe {
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  border-left: solid 4px #668ad8;
+  border-right: solid 4px #668ad8;
+  border-bottom: none;
+  border-top: none;
+  color: #000000;
+  text-shadow: 0 0 5px white;
+  padding: 0.5em 1em;
+  background: repeating-linear-gradient(-45deg, #cce7ff, #cce7ff 3px,#e9f4ff 3px, #e9f4ff 7px);
+  transition: .4s;
+}
+
+.btn_flat_stripe:hover {
+  background: repeating-linear-gradient(-45deg, #cce7ff, #cce7ff 5px,#e9f4ff 5px, #e9f4ff 9px);
+}
+
+
+.bg_pattern {
+    overflow: auto;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #ffffff;
+    z-index: -1;
+}
+
+.Lines {
+    background-size: 40px 40px;
+    background-image: repeating-linear-gradient(0deg, #ddffff, #ddffff 2px, #ffffff 2px, #ffffff);
 }
 
 /*ヘッダー部*/
@@ -40,10 +113,15 @@ ul {
 .recommended_users {
     border: 4px solid #5b8db0;
     border-radius: 240px 15px 185px 15px / 15px 200px 15px 185px;
-    margin: 2em 0;
+    margin: 0 0 2em 0;
     padding: 2em;
 }
 
 .find_button {
     width: 100px;
+}
+
+
+.carousel-item img {
+    height: 500px;
 }
