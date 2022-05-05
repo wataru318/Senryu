@@ -28,4 +28,18 @@ class FollowController extends Controller
         return redirect()->route('users.show', $id);
         
     }
+    
+    public function followers()
+    {
+        return view('follows.followers', [
+            'title' => 'フォロワー一覧',
+            ]);
+    }
+    
+    public function following()
+    {
+        return view('follows.following', [
+            'title' => 'フォロー一覧',
+            ]);
+    }
 }

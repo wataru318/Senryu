@@ -40,7 +40,7 @@
     </div>
 </li>
 @empty
-<li>この人は何も投稿していないようです。</li>
+<li>投稿がありません！</li>
 @endforelse
 </ul>
 <form class="pt-5" method="get" action="{{ route('posts.index') }}">

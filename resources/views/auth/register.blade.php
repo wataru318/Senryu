@@ -15,6 +15,22 @@
  
     <div class="input_area">
       <label>
+        性別:<br>
+        <input type="radio" name="gender" value="0">男性
+        <input type="radio" name="gender" value="1">女性
+        <input type="radio" name="gender" value="2">答えない
+      </label>
+    </div>
+ 
+    <div class="input_area">
+      <label>
+        年齢:<br>
+        <input type="number" name="age" min="0" max="120">
+      </label>
+    </div>
+ 
+    <div class="input_area">
+      <label>
         メールアドレス:<br>
         <input type="email" name="email">
       </label>

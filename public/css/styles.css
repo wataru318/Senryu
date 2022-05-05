@@ -8,19 +8,25 @@ p {
 }
 
 li {
-    list-style: none
+    list-style: none;
 }
 
 ul {
     padding-left: 0;
 }
 
+a:hover {
+    text-decoration: none;
+}
+
 .error {
     color: red;
+    padding-bottom: 20px;
 }
 
 .success {
     color: green;
+    padding-bottom: 20px;
 }
 
 h2 {
@@ -31,7 +37,8 @@ h2 {
   padding: 0.2em 0.5em;
   color: #454545;
   width: fit-content;
-  margin-bottom: 20px
+  margin-bottom: 20px;
+  font-weight: bold;
 }
 
 h2:before {
@@ -79,6 +86,7 @@ h2:after {
 
 .bg_pattern {
     overflow: auto;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
@@ -92,11 +100,86 @@ h2:after {
     background-image: repeating-linear-gradient(0deg, #ddffff, #ddffff 2px, #ffffff 2px, #ffffff);
 }
 
+
+/*トップページ*/
+.carousel {
+    margin-bottom: 20px;
+}
+
+.carousel-inner {
+    position: relative;
+}
+
+.carousel-phrase {
+    position: absolute;
+    color: #fff;
+    font-weight: bold;
+    text-shadow: 1px 2px 3px #808080;
+    font-size: 28px;
+    top: 60%;
+    left: 75%;
+    z-index: 1;
+}
+
+.carousel-item {
+    display: inline-block;
+    height: 550px;
+}
+
+.carousel-item img {
+    height: 100%;
+}
+
+.top_img {
+  background: url(../images/top_img.jpg) no-repeat center;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  position: relative; 
+  margin-bottom: 20px;
+}
+
+.top_img:before {
+  content: '';
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.top_img_phrase {
+    position: absolute;
+    top: 78%;
+    left: 15%;
+    color: #fff;
+}
+
+.top_description {
+    margin-bottom: 30px;
+}
+
+.top_description_section {
+    padding-top: 10px;
+}
+
+.top_description_content {
+    line-height: 3em;
+}
+
+
 /*ヘッダー部*/
+.header {
+    margin-bottom: 30px;
+}
+
 .header_title:hover {
     text-decoration: none;
     color: #007bff;
 }
+
 
 /*投稿一覧画面*/
 .post_list_item {
@@ -122,6 +205,32 @@ h2:after {
 }
 
 
-.carousel-item img {
-    height: 500px;
+
+/*フッター部*/
+.footer {
+    margin-top: 30px;
+    background-color: #dfefff;
+    box-shadow: 0px 0px 0px 5px #dfefff;
+    border-top: dashed 2px white;
+    width: 100%;
+    /*position: absolute;*/
+    /*bottom: 0;*/
+}
+
+.footer a {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.footer ul {
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+.footer li {
+    border-right: 1px solid #348aff;
+}
+
+.footer li:last-child {
+    border-right: none;
 }

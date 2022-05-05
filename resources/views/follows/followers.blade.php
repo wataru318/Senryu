@@ -2,7 +2,7 @@
 <html lang="ja">
     <head>
         <meta charset="UTF-8">
-        <title>@yield('title')</title>
+        <title>{{ $title }}</title>
   <title>9章</title>
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
@@ -13,22 +13,6 @@
     <link href="https://fonts.googleapis.com/earlyaccess/kokoro.css" rel="stylesheet">
     </head>
     <body>
-    <div class="bg_pattern Lines">
-        @yield('header')
-        
-        {{--エラーメッセージ--}}
-        @foreach($errors->all() as $error)
-        <p class="error">{{ $error }}</p>
-        @endforeach
-        
-        {{--成功メッセージ--}}
-        @if (session()->has('success'))
-            <div class="success">
-                {{ session()->get('success') }}
-            </div>
-        @endif
-        @yield('content')
-        @yield('footer')
-        </div>
+    a
     </body>
 </html>

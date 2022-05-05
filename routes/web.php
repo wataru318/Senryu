@@ -13,13 +13,21 @@
 
 Auth::routes();
 
+Route::get('/', 'TopSingleAction')->name('top.top');
+
+
 Route::resource('posts', 'PostController');
 
 Route::resource('users', 'UserController')->only([
     'show']);
+
+Route::get('/likes', 'LikeSingleAction')->name('likes.likes');
+    
     
 Route::resource('follows', 'FollowController')->only([
     'store', 'destroy'
     ]);
-    
-Route::get('/follower', 'FollowController@followerIndex');
+Route::get('/followers', 'FollowController@followers')->name('follows.followers');
+Route::get('/following', 'FollowController@following')->name('follows.following');
+
+Route::get('/contact', 'ContactSingleAction')->name('contact.contact');
