@@ -19,3 +19,10 @@
     </div>
 </header>
 @endsection
+@section('footer')
+    <footer class="footer footer_not_logged_in">
+        <div class="container-fluid text-center">
+            <small>Copyright&copy; 2022 Wataru Ito All Rights Reserved.</small>
+        </div>
+    </footer>
+@endsection

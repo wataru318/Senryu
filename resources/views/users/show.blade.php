@@ -4,8 +4,10 @@
 
 @section('content')
 <div class="container">
-<h1>{{ $user->name }}</h1>
+<h2>{{ $user->name }}</h2>
 @if($user->id !== \Auth::id())
+<p><a href="{{ route('follows.following', $user->id)}}">フォロー</a>： {{ $my_follows }}</p>
+<p><a href="{{ route('follows.followers', $user->id)}}">フォロワー</a>： {{ $my_followers }}</p>
 @if(\Auth::user()->isFollowing($user))
 <form method="post" action="{{ route('follows.destroy', $user) }}">
     @csrf
@@ -20,10 +22,13 @@
 </form>
 @endif
 <ul>
+@else
+<p><a href="{{ route('follows.following', \Auth::id())}}">フォロー</a>： {{ $my_follows }}</p>
+<p><a href="{{ route('follows.followers', \Auth::id())}}">フォロワー</a>： {{ $my_followers }}</p>
 @endif
 @forelse($user_posts as $user_post)
 <li class="d-block post_list_item">
-<p class="post_header d-inline">{{ $user_post->user->name }}:{{ $user_post->created_at }}</p>
+<p class="post_header d-inline"><a href="{{ route('users.show', $user_post->user->id) }}">{{ $user_post->user->name }}</a>:{{ $user_post->created_at }}</p>
 <p class="post_body pt-3">{!! nl2br(e($user_post->content)) !!}</p>
     <div class="d-flex justify-content-end">
         @if($user_post->user_id === \Auth::id())

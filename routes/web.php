@@ -27,7 +27,7 @@ Route::get('/likes', 'LikeSingleAction')->name('likes.likes');
 Route::resource('follows', 'FollowController')->only([
     'store', 'destroy'
     ]);
-Route::get('/followers', 'FollowController@followers')->name('follows.followers');
-Route::get('/following', 'FollowController@following')->name('follows.following');
+Route::get('/{user}/followers', 'FollowController@followers')->name('follows.followers');
+Route::get('/{user}/following', 'FollowController@following')->name('follows.following');
 
 Route::get('/contact', 'ContactSingleAction')->name('contact.contact');

@@ -28,8 +28,8 @@
     <footer class="footer">
         <div class="container-fluid text-center">
             <ul class="footer_list nav flex-column flex-md-row justify-content-center">
-                <li class="nav-item"><a href="{{ route('follows.following') }}" class="nav-link">フォロー</a></li>
-                <li class="nav-item"><a href="{{ route('follows.followers') }}" class="nav-link">フォロワー</a></li>
+                <li class="nav-item"><a href="{{ route('follows.following', \Auth::id()) }}" class="nav-link">フォロー</a></li>
+                <li class="nav-item"><a href="{{ route('follows.followers', \Auth::id()) }}" class="nav-link">フォロワー</a></li>
                 <li class="nav-item"><a href="{{ route('likes.likes') }}" class="nav-link">お気に入り</a></li>
                 <li class="nav-item"><a href="{{ route('contact.contact') }}" class="nav-link">お問い合わせ</a></li>
             </ul>

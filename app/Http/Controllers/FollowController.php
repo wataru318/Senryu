@@ -17,7 +17,7 @@ class FollowController extends Controller
             'follow_id' => $request->follow_id,
             ]);
             \Session::flash('success', 'フォローしました');
-            return redirect()->route('users.show', $following_user);
+            return back()->withInput();
     }
     
     public function destroy($id)
@@ -25,21 +25,25 @@ class FollowController extends Controller
         $follow = \Auth::user()->follows->where('follow_id', $id)->first();
         $follow->delete();
         \Session::flash('success', 'フォロー解除しました');
-        return redirect()->route('users.show', $id);
+        return back()->withInput();
         
     }
     
-    public function followers()
+    public function followers($id)
     {
+        $followers = User::find($id)->followers;
         return view('follows.followers', [
             'title' => 'フォロワー一覧',
+            'followers' => $followers,
             ]);
     }
     
-    public function following()
+    public function following($id)
     {
+        $follow_users = User::find($id)->follow_users;
         return view('follows.following', [
             'title' => 'フォロー一覧',
+            'follow_users' => $follow_users,
             ]);
     }
 }

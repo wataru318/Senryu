@@ -149,7 +149,9 @@ return [
         'name' => 'ユーザー名',
         'email' => 'メールアドレス',
         'password' => 'パスワード',
-        'content' => '投稿内容'
+        'content' => '投稿内容',
+        'gender' => '性別',
+        'age' => '年齢'
         ],
 
 ];

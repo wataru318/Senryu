@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="container">
-<h1>{{ $title }}</h1>
+<h2>{{ $title }}</h2>
 <form method="post" action="{{ route('posts.update', $post)}}">
     @csrf
     @method('patch')
