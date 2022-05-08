@@ -1,6 +1,6 @@
 /*共通部分*/
 body {
-    font-family: "Kokoro";
+    font-family: "sans-serif";
 }
 
 p {
@@ -27,6 +27,10 @@ a:hover {
 .success {
     color: green;
     padding-bottom: 20px;
+}
+
+h1 {
+    font-family: "kokoro";
 }
 
 h2 {
@@ -100,6 +104,10 @@ h2:after {
     background-image: repeating-linear-gradient(0deg, #ddffff, #ddffff 2px, #ffffff 2px, #ffffff);
 }
 
+.profile_image_size {
+    width: 80px;
+    height: 60px;
+}
 
 /*トップページ*/
 .carousel {
@@ -112,7 +120,7 @@ h2:after {
 
 .carousel-phrase {
     position: absolute;
-    color: #ccff00;
+    color: #000;
     font-weight: bold;
     text-shadow: 1px 2px 3px #808080;
     font-size: 2.5em;

@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\UserRequest;
 
 use App\User;
 use App\Post;
 use App\Follow;
+
+use App\Services\FileUploadService;
 
 
 class UserController extends Controller
@@ -23,5 +26,29 @@ class UserController extends Controller
             'my_follows' => $my_follows,
             'my_followers' => $my_followers,
             ]);
+    }
+    
+    public function edit($id){
+        return view('users.edit', [
+            'title' => 'ユーザー編集',
+            ]);
+    }
+    
+    public function update($id, UserRequest $request, FileUploadService $service)
+    {
+        $path = $service->saveImage($request->file('image'));
+        
+        $user = \Auth::user();
+        if($user->profile_image !== ''){
+        \Storage::disk('public')->delete('photos/' . $user->profile_image);
+      }
+      $user->update(
+      $request->only([
+          'name', 'gender', 'age', 'profile'])
+          );
+      $user->update(['profile_image' => $path]);
+    
+      \Session::flash('success', 'プロフィールを編集しました');
+      return redirect()->route('users.show', $user);
     }
 }

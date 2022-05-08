@@ -19,8 +19,8 @@ Route::get('/', 'TopSingleAction')->name('top.top');
 Route::resource('posts', 'PostController');
 
 Route::resource('users', 'UserController')->only([
-    'show']);
-
+    'show', 'edit', 'update', 'destroy']);
+    
 Route::get('/likes', 'LikeSingleAction')->name('likes.likes');
     
     

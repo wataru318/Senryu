@@ -6,6 +6,14 @@
 <div class="container">
 <h2>{{ $user->name }}</h2>
 @if($user->id !== \Auth::id())
+<div class="profile_image">
+  @if($user->profile_image !== '')
+      <img class="profile_image_size"  src="{{ asset('storage/' . $user->profile_image) }}">
+  @else
+      <img class="profile_image_size"  src="{{ asset('images/no_image.png') }}">
+  @endif
+</div>
+<p>{{ $user->profile }}</p>
 <p><a href="{{ route('follows.following', $user->id)}}">フォロー</a>： {{ $my_follows }}</p>
 <p><a href="{{ route('follows.followers', $user->id)}}">フォロワー</a>： {{ $my_followers }}</p>
 @if(\Auth::user()->isFollowing($user))
@@ -23,6 +31,15 @@
 @endif
 <ul>
 @else
+<a href="{{ route('users.edit', \Auth::id()) }}">プロフィールを編集する</a>
+<div class="profile_image">
+  @if($user->profile_image !== '')
+      <img class="profile_image_size"  src="{{ asset('storage/' . $user->profile_image) }}">
+  @else
+      <img class="profile_image_size"  src="{{ asset('images/no_image.png') }}">
+  @endif
+</div>
+<p>{{ $user->profile }}</p>
 <p><a href="{{ route('follows.following', \Auth::id())}}">フォロー</a>： {{ $my_follows }}</p>
 <p><a href="{{ route('follows.followers', \Auth::id())}}">フォロワー</a>： {{ $my_followers }}</p>
 @endif

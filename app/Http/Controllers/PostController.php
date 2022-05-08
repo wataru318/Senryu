@@ -45,6 +45,8 @@ class PostController extends Controller
         Post::create([
             'user_id' => \Auth::user()->id,
             'content' => $request->content,
+            'recommend_gender' => $request->recommend_gender,
+            'recommend_age' => $request->recommend_age,
             ]);
             session()->flash('success', '投稿したよ！');
             return redirect()->route('posts.index');
@@ -68,7 +70,7 @@ class PostController extends Controller
         }
         
         $post->update($request->only([
-            'content']));
+            'content', 'recommend_gender', 'recommend_age']));
             session()->flash('success', '投稿を更新しました！');
             return redirect()->route('posts.index');
     }

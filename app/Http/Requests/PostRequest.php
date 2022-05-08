@@ -25,6 +25,8 @@ class PostRequest extends FormRequest
     {
         return [
             'content' => ['required', 'max:1000'],
+            'recommend_gender' => ['required'],
+            'recommend_age' => ['required']
         ];
     }
 }
