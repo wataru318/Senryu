@@ -26,14 +26,20 @@
     <div class="input_area">
       <label>
         年齢<br>
-        <input type="number" name="age" min="0" max="120" value="{{ \Auth::user()->age }}">
+        <select name="age">
+                @for($i = 1; $i < 9; $i++)
+                <option value="{{ $i }}">{{ $i }}0代</option>
+                @endfor
+                <option value="10">90代以上</option>
+            </select>
       </label>
     </div>
+ 
     
     <div class="input_area">
       <label>
         プロフィール<br>
-        <textarea cols=50 rows=10 name="profile">{{ \Auth::user()->profile }}</textarea>
+        <textarea cols=20 rows=5 name="profile">{{ \Auth::user()->profile }}</textarea>
       </label>
     </div>
     

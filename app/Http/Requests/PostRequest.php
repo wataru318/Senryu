@@ -24,9 +24,14 @@ class PostRequest extends FormRequest
     public function rules()
     {
         return [
-            'content' => ['required', 'max:1000'],
-            'recommend_gender' => ['required'],
-            'recommend_age' => ['required']
+            'content1' => ['required', 'max:10',],
+            'content2' => ['required', 'max:10',],
+            'content3' => ['required', 'max:10',],
+            'post_image' => [
+                'file',
+                'image',
+                'mimes:jpeg,jpg,png',
+                'dimensions:min_width=50,min_height=50,max_width=1000,max_height=1000',],
         ];
     }
 }

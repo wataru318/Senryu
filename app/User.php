@@ -63,4 +63,12 @@ class User extends Authenticatable
     public function scopeRecommend($query, $self_id){
         return $query->where('id', '!=', $self_id)->inRandomOrder()->limit(3);
     }
+    
+    public function likes(){
+        return $this->hasMany('App\Like');
+    }
+    
+    public function likePosts(){
+        return$this->belongsToMany('App\Post', 'likes');
+    }
 }

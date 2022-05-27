@@ -3,12 +3,22 @@
 @section('title', $title)
 
 @section('content')
+ <div class="container">
   <h2>{{ $title }}</h2>
- 
-  <ul class="followers">
+  <ul class="follow_list d-flex justify-content-center row">
       @forelse($followers as $follower)
-          <li class="follower">
-            <a href="{{ route('users.show', $follower->id) }}">{{ $follower->name }}</a>
+          <li class=" ml-2 mb-2 follow_list_item d-flex align-items-center">
+          <a href="{{ route('users.show', $follower->id) }}">
+          <div class="profile_image">
+          @if($follower->profile_image !== '')
+          <img class="profile_image_size" src="{{ asset('storage/' . $follower->profile_image) }}">
+          @else
+          <img class="profile_image_size"  src="{{ asset('images/no_image.png') }}">
+          @endif
+          </div>
+          </a>
+            <a class="pl-3" href="{{ route('users.show', $follower->id) }}">{{ $follower->name }}</a>
+            <div class="follow_list_item_details pl-3">
             @if(\Auth::id() !== $follower->id)
             @if(\Auth::user()->isFollowing($follower))
               <form method="post" action="{{route('follows.destroy', $follower)}}" class="follow">
@@ -24,9 +34,11 @@
               </form>
             @endif
             @endif
+            </div>
           </li>
       @empty
           <li>フォローされているユーザーはいません。</li>
       @endforelse
   </ul>
+  </div>
 @endsection

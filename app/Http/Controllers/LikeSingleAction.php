@@ -13,8 +13,10 @@ class LikeSingleAction extends Controller
      
     public function __invoke()
     {
+        $like_posts = \Auth::user()->likePosts;
         return view('likes.likes', [
             'title' => 'お気に入り一覧',
+            'like_posts' => $like_posts,
             ]);
     }
 }

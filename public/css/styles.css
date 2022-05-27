@@ -29,14 +29,9 @@ a:hover {
     padding-bottom: 20px;
 }
 
-h1 {
-    font-family: "kokoro";
-}
-
 h2 {
-  position: relative;
-  background: #dfefff;
-  box-shadow: 0px 0px 0px 5px #dfefff;
+  background: #98d98e;
+  box-shadow: 0px 0px 0px 5px #98d98e;
   border: dashed 2px white;
   padding: 0.2em 0.5em;
   color: #454545;
@@ -55,16 +50,13 @@ h2:before {
   margin-right: 8px;
 }
 
-h2:after {
-  position: absolute;
-  content: '';
-  left: -7px;
-  top: -7px;
-  border-width: 0 0 15px 15px;
-  border-style: solid;
-  border-color: #fff #fff #a8d4ff;
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
+@media (max-width: 767px) {
+h2 {
+    margin-left: auto;
+    margin-right: auto
 }
+}
+
 
 .btn_flat_stripe {
   position: relative;
@@ -72,19 +64,19 @@ h2:after {
   font-weight: bold;
   padding: 0.5em 1em;
   text-decoration: none;
-  border-left: solid 4px #668ad8;
-  border-right: solid 4px #668ad8;
+  border-left: solid 4px #98d98e;
+  border-right: solid 4px #98d98e;
   border-bottom: none;
   border-top: none;
   color: #000000;
   text-shadow: 0 0 5px white;
   padding: 0.5em 1em;
-  background: repeating-linear-gradient(-45deg, #cce7ff, #cce7ff 3px,#e9f4ff 3px, #e9f4ff 7px);
+  background: repeating-linear-gradient(-45deg, #d6e9ca, #d6e9ca 3px,#f0fbbf 3px, #f0fbbf 7px);
   transition: .4s;
 }
 
 .btn_flat_stripe:hover {
-  background: repeating-linear-gradient(-45deg, #cce7ff, #cce7ff 5px,#e9f4ff 5px, #e9f4ff 9px);
+  background: repeating-linear-gradient(-45deg, #d6e9ca, #d6e9ca 5px,#f0fbbf 5px, #f0fbbf 9px);
 }
 
 
@@ -105,8 +97,18 @@ h2:after {
 }
 
 .profile_image_size {
-    width: 80px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.like_button:hover {
+    filter: brightness(90%);
+    cursor: pointer;
+}
+
+.on_icon {
+    color: red;
 }
 
 /*トップページ*/
@@ -123,8 +125,8 @@ h2:after {
     color: #000;
     font-weight: bold;
     text-shadow: 1px 2px 3px #808080;
-    font-size: 2.5em;
-    top: 55%;
+    font-size: 1.5em;
+    top: 60%;
     left: 60%;
     z-index: 1;
 }
@@ -193,12 +195,20 @@ h2:after {
 .post_list_item {
     padding: 0.5em 1em;
     margin: 2em 0;
-    background: #f0f7ff;
-    border: dashed 3px #5b8bd0;
+    background: #d6e9ca;
+    border: solid 2px green;
 }
 
 .post_header {
-    border-bottom: solid 3px #5b8db0;
+    border-bottom: solid 2px #5b8db0;
+    width: fit-content;
+}
+
+.post_body {
+    -ms-writing-mode: tb-rl;
+    writing-mode: vertical-lr;
+    padding: 10px 0px;
+    width: 100%;
 }
 
 .recommended_users {
@@ -212,6 +222,18 @@ h2:after {
     width: 100px;
 }
 
+.post_body_main_left {
+    width: 50%;
+    height: auto;
+}
+
+.post_body_main_img {
+    width: 100%;
+}
+
+.location {
+    margin-right: auto;
+}
 
 
 /*フッター部*/
@@ -246,4 +268,21 @@ h2:after {
 
 .footer li:last-child {
     border-right: none;
+}
+
+/*フォロー関係*/
+.follow_list_item {
+  padding: 0.5em;
+  background: aliceblue;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.23);
+  width: fit-content;
+}
+
+/*ユーザー詳細*/
+.user_name {
+    padding-left: 1.5em;
+}
+
+.users_show_top_button {
+    padding-left: 1.5em;
 }

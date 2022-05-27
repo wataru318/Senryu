@@ -44,7 +44,7 @@ class UserController extends Controller
       }
       $user->update(
       $request->only([
-          'name', 'gender', 'age', 'profile'])
+          'name', 'profile'])
           );
       $user->update(['profile_image' => $path]);
     

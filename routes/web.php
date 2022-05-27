@@ -30,4 +30,4 @@ Route::resource('follows', 'FollowController')->only([
 Route::get('/{user}/followers', 'FollowController@followers')->name('follows.followers');
 Route::get('/{user}/following', 'FollowController@following')->name('follows.following');
 
-Route::get('/contact', 'ContactSingleAction')->name('contact.contact');
+Route::patch('/posts/{post}/toggle_like', 'PostController@toggleLike')->name('posts.toggle_like');

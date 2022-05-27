@@ -150,10 +150,11 @@ return [
         'email' => 'メールアドレス',
         'password' => 'パスワード',
         'content' => '投稿内容',
-        'gender' => '性別',
-        'age' => '年齢',
         'recommend_gender' => 'おすすめしたい性別',
         'recommend_age' => 'おすすめしたい年齢',
+        'content1' => '上',
+        'content2' => '中',
+        'content3' => '下',
         ],
 
 ];

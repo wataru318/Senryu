@@ -5,22 +5,13 @@
 @section('content')
 <div class="container">
 <h2>{{ $title }}</h1>
-<form method="post" action="{{ route('posts.store') }}">
+<form method="post" action="{{ route('posts.store') }}" enctype="multipart/form-data">
     @csrf
-    投稿内容<br>
-    <textarea cols="50" rows="10" name="content" class="d-block mb-3"></textarea>
-    <div class="input_area">
-        <input type="radio" name="recommend_gender" value="0">男性向き
-        <input type="radio" name="recommend_gender" value="1">女性向き
-        <input type="radio" name="recommend_gender" value="2">どちらにも！
-    </div>
- 
-    <div class="input_area">
-      <label>
-        対象年齢<br>
-        <input type="number" name="recommend_age" min="0" max="120">
-      </label>
-    </div>
+    <h3>入力欄</h3>
+    <input type="text" name="content1" class="d-block mb-3 w-30" placeholder="上">
+    <input type="text" name="content2" class="d-block mb-3 w-50" placeholder="中">
+    <input type="text" name="content3" class="d-block mb-3 w-30" placeholder="下">
+    <input type="file" name="post_image">
     <input class="btn btn-success" type="submit" value="投稿する">
 </form>
 <form class="pt-5" method="get" action="{{ route('posts.index') }}">

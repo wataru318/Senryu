@@ -17,7 +17,10 @@ class CreatePostsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
-            $table->string('content', 1000);
+            $table->string('content1', 10);
+            $table->string('content2', 10);
+            $table->string('content3', 10);
+            $table->string('post_image', 100);
             
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });

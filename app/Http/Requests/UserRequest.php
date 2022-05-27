@@ -24,8 +24,6 @@ class UserRequest extends FormRequest
     public function rules()
     {
         return [
-            'gender' => ['required', 'max:2'],
-            'age' => ['required', 'max:120', 'min:0'],
             'profile' => ['max:200', 'nullable'],
             'profile_image' => [
                 'file',
