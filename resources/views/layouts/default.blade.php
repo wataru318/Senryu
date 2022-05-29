@@ -15,7 +15,6 @@
     
     </head>
     <body>
-    <div class="bg_pattern Lines">
         @yield('header')
         
         {{--エラーメッセージ--}}
@@ -31,7 +30,6 @@
         @endif
         @yield('content')
         @yield('footer')
-        </div>
     <script src="{{ asset('/js/trip.js') }}"></script>
     </body>
 </html>

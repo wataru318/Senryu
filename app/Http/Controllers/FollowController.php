@@ -16,7 +16,7 @@ class FollowController extends Controller
             'user_id' => $user->id,
             'follow_id' => $request->follow_id,
             ]);
-            \Session::flash('success', 'フォローしました');
+            \Session::flash('success', 'ふぉろーしました');
             return back()->withInput();
     }
     
@@ -24,7 +24,7 @@ class FollowController extends Controller
     {
         $follow = \Auth::user()->follows->where('follow_id', $id)->first();
         $follow->delete();
-        \Session::flash('success', 'フォロー解除しました');
+        \Session::flash('success', 'ふぉろー解除しました');
         return back()->withInput();
         
     }
@@ -33,7 +33,7 @@ class FollowController extends Controller
     {
         $followers = User::find($id)->followers;
         return view('follows.followers', [
-            'title' => 'フォロワー一覧',
+            'title' => 'ふぉろわー一覧',
             'followers' => $followers,
             ]);
     }
@@ -42,7 +42,7 @@ class FollowController extends Controller
     {
         $follow_users = User::find($id)->follow_users;
         return view('follows.following', [
-            'title' => 'フォロー一覧',
+            'title' => 'ふぉろー一覧',
             'follow_users' => $follow_users,
             ]);
     }

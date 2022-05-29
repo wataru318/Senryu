@@ -5,9 +5,9 @@
 @section('content')
 <div class="container">
     <h2>{{ $title }}</h2>
-    <ul>    
+    <ul class="d-flex row">    
 @forelse($like_posts as $like_post)
-    <li class="d-block post_list_item">
+    <li class="d-block post_list_item col-12 col-md-6">
         <div class="post_header d-flex align-items-center py-2">
             <a href="{{ route('users.show', $like_post->user_id) }}">
                 <div class="profile_image">
@@ -37,11 +37,21 @@
             </div>
         </div>
         <div class="post_body">
+        <div class="post_body_main_left">
+        @if($like_post->post_image !== '')
+        <img class="post_body_main_img" src="{{ asset('storage/' . $like_post->post_image) }}">
+        @else
+        <img class="post_body_main_img" src="{{ asset('images/no_image.png') }}">
+        @endif
+        </div>
+        <div class="post_body_main_right">
         <p class="pt-3">{!! nl2br(e($like_post->content1)) !!}</p>
         <p class="pt-3">{!! nl2br(e($like_post->content2)) !!}</p>
         <p class="pt-3">{!! nl2br(e($like_post->content3)) !!}</p>
         </div>
+        </div>
         <div class="d-flex justify-content-end">
+            <p class="location position"></p>
             <a class="like_button pr-3" name="like">
                 @if($like_post->isLikedBy(\Auth::user()) === true)
                 <i class="on_icon fa-solid fa-bookmark"></i>
@@ -60,4 +70,17 @@
 @endforelse
 </ul>
 </div>
+<script>
+    function success(pos) {
+    const lat = pos.coords.latitude;
+    const lng = pos.coords.longitude;
+    $('.location').text(`緯度:${lat} 経度:${lng}で詠まれました`);
+}
+
+function fail(error) {
+    alert('位置情報の取得に失敗しました。');
+}
+
+navigator.geolocation.getCurrentPosition(success, fail);
+</script>
 @endsection

@@ -2,34 +2,34 @@
  
 @section('content')
 <div class="container">
-  <h2>ユーザー登録</h1>
+  <h2>ゆーざー登録</h1>
  
   <form method="POST" action="{{ route('register') }}">
     @csrf
     <div class="input_area">
       <label>
-        ユーザー名<br>
+        ゆーざー名<br>
         <input type="text" name="name">
       </label>
     </div>
  
     <div class="input_area">
       <label>
-        メールアドレス<br>
+        めーるあどれす<br>
         <input type="email" name="email">
       </label>
     </div>
  
     <div class="input_area">
       <label>
-        パスワード<br>
+        ぱすわーど<br>
         <input type="password" name="password">
       </label>
     </div>
  
     <div class="input_area">
       <label>
-        パスワード（確認用）<br>
+        ぱすわーど（確認用）<br>
         <input type="password" name="password_confirmation" >
       </label>
     </div>

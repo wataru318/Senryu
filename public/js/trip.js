@@ -24,14 +24,3 @@ $('.like_button').on('click', () => {
     });
 });
 
-function success(pos) {
-    const lat = pos.coords.latitude;
-    const lng = pos.coords.longitude;
-    $('.location').text(`緯度:${lat} 経度:${lng}で詠まれました`);
-}
-
-function fail(error) {
-    alert('位置情報の取得に失敗しました。');
-}
-
-navigator.geolocation.getCurrentPosition(success, fail);

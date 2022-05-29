@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="container">
-    <h2>おすすめユーザー</h2>
+    <h2>おすすめゆーざー</h2>
     <ul class="recommended_users row">
 @forelse($recommended_users as $recommend_user)
     <li class="col-2  text-center">
@@ -19,7 +19,7 @@
     <p>{{ $recommend_user->name }}</p>
     </a></li>
 @empty
-    <li>おすすめユーザーはいません！<br>ぜひ外の世界に目を向けましょう！</li>
+    <li>おすすめゆーざーはいません！<br>ぜひ外の世界に目を向けましょう！</li>
 @endforelse
     </ul>
     <h2>たいむらいん</h2>
@@ -31,7 +31,7 @@
             </div>
         </div>
     </form>
-    <ul class="d-flex row gap-2">    
+    <ul class="d-flex row">    
 @forelse($posts as $post)
     <li class="d-block post_list_item col-12 col-md-6">
         <div class="post_header d-flex align-items-center py-2">
@@ -71,9 +71,9 @@
         @endif
         </div>
         <div class="post_body_main_right">
-        <p class="pt-3">{!! nl2br(e($post->content1)) !!}</p>
-        <p class="pt-3">{!! nl2br(e($post->content2)) !!}</p>
-        <p class="pt-3">{!! nl2br(e($post->content3)) !!}</p>
+        <p>{!! nl2br(e($post->content1)) !!}</p>
+        <p>{!! nl2br(e($post->content2)) !!}</p>
+        <p>{!! nl2br(e($post->content3)) !!}</p>
         </div>
         </div>
         <div class="d-flex justify-content-end">
@@ -96,4 +96,17 @@
 @endforelse
 </ul>
 </div>
+<script>
+    function success(pos) {
+    const lat = pos.coords.latitude;
+    const lng = pos.coords.longitude;
+    $('.location').text(`緯度:${lat} 経度:${lng}で詠まれました`);
+}
+
+function fail(error) {
+    alert('位置情報の取得に失敗しました。');
+}
+
+navigator.geolocation.getCurrentPosition(success, fail);
+</script>
 @endsection

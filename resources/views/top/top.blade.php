@@ -1,32 +1,20 @@
 @extends('layouts.not_logged_in')
 @section('content')
-    <div id="cl" class="carousel slide carousel-fade" data-ride="carousel">
-        <ol class="carousel-indicators">
-            <li data-target="#cl" data-slide-to="0" class="active"></li>
-            <li data-target="#cl" data-slide-to="1"></li>
-            <li data-target="#cl" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner">
-            <div class="carousel-item active"><img src="images/carousel_img1.jpg" class="d-block w-100"></div>
-            <div class="carousel-item"><img src="images/carousel_img2.jpg" class="d-block w-100"></div>
-            <div class="carousel-item"><img src="images/carousel_img3.jpg" class="d-block w-100"></div>
-            <p class="carousel-phrase">ちょっとココらで<br>川柳でも</p>
-        </div>
-        <a class="carousel-control-prev" href="#cl" data-slide="prev">
-            <span class="carousel-control-prev-icon"></span>
-        </a>
-        <a class="carousel-control-next" href="#cl" data-slide="next">
-            <span class="carousel-control-next-icon"></span>
-        </a>
+<main class="top_main container">
+    <div class="top_phraseBox row mb-3">
+        <p class="top_phrase">川柳を</p>
+        <p class="top_phrase">あなたが思う</p>
+        <p class="top_phrase">その場所で</p>
     </div>
-    <div class="top_img">
-        <p class="top_img_phrase">"<b>ココで一句</b>"ってなに？</p>
-    </div>
-    <article class="top_description container">
-        <p>その場所で<br>あなたが思う<br>川柳を</p>
-        <section class="row align-items-center top_description_section">
-            <img class="col-md-5 col-12" src="images/top_description_img.jpg">
-            <p class="col-md-7 col-12 top_description_content">ダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミー</p>
+    <article class="top_discription">
+        <section>
+            <h2 class="top_discription_title">ココで一句って？</h2>
+            <p class="top_discription_phrase">ココで一句とは、川柳のSNSです。川柳を投稿すると、位置情報もあわせて投稿され、投稿した人がどこでどんな思いでその句を詠んだのかが分かります。良い句があったら実際にその場所に行き、趣を感じてみてはいかが？</p>
         </section>
     </article>
+    <form class="start_form" action="{{ route('login') }}" method="get">
+        <p class="start_phrase">さぁ！始めよう！</p>
+        <input class="btn btn-success w-75" type="submit" value="始める">
+    </form>
+</main>
 @endsection

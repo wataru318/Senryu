@@ -24,20 +24,20 @@
               <form method="post" action="{{route('follows.destroy', $follower)}}" class="follow">
                 @csrf
                 @method('delete')
-                <input  class="btn btn-secondary"type="submit" value="フォロー解除">
+                <input  class="btn btn-secondary"type="submit" value="ふぉろー解除">
               </form>
             @else
               <form method="post" action="{{route('follows.store')}}" class="follow">
                 @csrf
                 <input type="hidden" name="follow_id" value="{{ $follower->id }}">
-                <input  class="btn btn-success" type="submit" value="フォロー">
+                <input  class="btn btn-success" type="submit" value="ふぉろー">
               </form>
             @endif
             @endif
             </div>
           </li>
       @empty
-          <li>フォローされているユーザーはいません。</li>
+          <li>ふぉろーされているゆーざーはいません。</li>
       @endforelse
   </ul>
   </div>

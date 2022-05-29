@@ -20,7 +20,7 @@ class UserController extends Controller
         $my_followers = follow::where('follow_id', $user->id)->count();
         $user_posts = $user->posts()->get();
         return view('users.show', [
-            'title' => 'ユーザー詳細',
+            'title' => 'ゆーざー詳細',
             'user' => $user,
             'user_posts' => $user_posts,
             'my_follows' => $my_follows,
@@ -30,7 +30,7 @@ class UserController extends Controller
     
     public function edit($id){
         return view('users.edit', [
-            'title' => 'ユーザー編集',
+            'title' => 'ゆーざー編集',
             ]);
     }
     
@@ -48,7 +48,7 @@ class UserController extends Controller
           );
       $user->update(['profile_image' => $path]);
     
-      \Session::flash('success', 'プロフィールを編集しました');
+      \Session::flash('success', 'ぷろふぃーるを編集しました');
       return redirect()->route('users.show', $user);
     }
 }
