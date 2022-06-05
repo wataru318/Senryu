@@ -11,6 +11,12 @@
     <input type="text" name="content1" class="d-block mb-3 w-25" value="{{ $post->content1}}">
     <input type="text" name="content2" class="d-block mb-3 w-50" value="{{ $post->content2}}">
     <input type="text" name="content3" class="d-block mb-3 w-25" value="{{ $post->content3}}">
+    @if($post->post_image !== '')
+        <img style='width:100px' class="post_body_main_img" src="{{ asset('storage/' . $post->post_image) }}">
+    @else
+        <img style='width:100px' class="post_body_main_img" src="{{ asset('images/no_image.png') }}">
+    @endif
+
     <input type="file" name="post_image"><br>
     <input class="btn btn-success mt-3" type="submit" value="投稿する">
 </form>

@@ -107,16 +107,16 @@
 
 <script>
 function test() {
-    navigator.geolocation.getCurrentPosition(test2);
+//    navigator.geolocation.getCurrentPosition(test2);
 }
 
 function test2(position) {
      //document.getElementById('longitude').value = position.coords.longitude;
      //document.getElementById('latitude').value = position.coords.latitude;
-    location.href = '/posts/nearby/'+position.coords.longitude+'/'+position.coords.latitude;
+  //  location.href = '/posts/nearby/'+position.coords.longitude+'/'+position.coords.latitude;
 }
 
-test();
+//test();
 </script>
 
 

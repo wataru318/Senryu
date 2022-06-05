@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','age','gender','profile','profile_image',
+        'name', 'email', 'password','profile','profile_image',
     ];
 
     /**
@@ -61,7 +61,7 @@ class User extends Authenticatable
     }
     
     public function scopeRecommend($query, $self_id){
-        return $query->where('id', '!=', $self_id)->inRandomOrder()->limit(3);
+        return $query->where('id', '!=', $self_id)->inRandomOrder()->limit(6);
     }
     
     public function likes(){

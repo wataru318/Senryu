@@ -31,3 +31,6 @@ Route::get('/{user}/followers', 'FollowController@followers')->name('follows.fol
 Route::get('/{user}/following', 'FollowController@following')->name('follows.following');
 
 Route::patch('/posts/{post}/toggle_like', 'PostController@toggleLike')->name('posts.toggle_like');
+
+
+Route::get('/posts/nearby/{longitude}/{latitude}','PostController@nearby')->name('posts.nearby');

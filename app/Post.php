@@ -8,7 +8,7 @@ use App\Follow;
 
 class Post extends Model
 {
-    protected $fillable = ['user_id', 'content1', 'content2', 'content3', 'post_image'];
+    protected $fillable = ['user_id', 'content1', 'content2', 'content3', 'post_image','latitude','longitude'];
     
     public function user(){
         return $this->belongsTo('App\User');
