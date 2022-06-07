@@ -20,16 +20,6 @@ a:hover {
     text-decoration: none;
 }
 
-.error {
-    color: red;
-    padding-bottom: 20px;
-}
-
-.success {
-    color: green;
-    padding-bottom: 20px;
-}
-
 h1 {
     color: #203744;
 }
@@ -62,6 +52,15 @@ h2 {
 }
 }
 
+.error {
+    color: red;
+    padding-bottom: 20px;
+}
+
+.success {
+    color: green;
+    padding-bottom: 20px;
+}
 
 .btn_flat_stripe {
   position: relative;
@@ -114,7 +113,6 @@ h2 {
     -ms-writing-mode: tb-rl;
     writing-mode: vertical-lr;
     font-size: 2em;
-    
 }
 
 .start_form {
@@ -140,7 +138,6 @@ h2 {
     text-decoration: none;
     color: #007bff;
 }
-
 
 /*投稿一覧画面*/
 .post_list_item {
@@ -198,22 +195,13 @@ h2 {
     margin-right: auto;
 }
 
-
-/*投稿ページ*/
-
-
 /*フッター部*/
-
 .footer {
     margin-top: 30px;
     background-color: #98d98a;
     box-shadow: 0px 0px 0px 5px #98d98a;
     border-top: dashed 2px white;
     width: 100%;
-    /*position:fixed;*/
-    /*bottom:0;*/
-    /*position:absolute;*/
-    /*bottom:0;*/
 }
 
 .footer_not_logged_in {
@@ -248,9 +236,15 @@ h2 {
 /*フォロー関係*/
 .follow_list_item {
   padding: 0.5em;
-  background: aliceblue;
+  background: #d8e698;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.23);
-  width: fit-content;
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.follower_name {
+    overflow: hidden;
 }
 
 /*ユーザー詳細*/

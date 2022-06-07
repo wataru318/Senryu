@@ -3,14 +3,6 @@
 @section('title', $title)
 
 @section('content')
-
- 
-    <!--<form>-->
-    <!--    <input type='hidden' name='longitude' id='longitude'>-->
-    <!--    <input type='hidden' name='latitude' id='latitude'>-->
-    <!--    <input type='submit' value='近い順に並び替え'>-->
-    <!--</form>-->
-
     <div class="container">
     <h2>おすすめゆーざー</h2>
     <ul class="recommended_users row">
@@ -41,7 +33,7 @@
     </form>
     <ul class="d-flex row">    
 @forelse($posts as $post)
-    <li class="d-block post_list_item col-12 col-md-5 ml-md-">
+    <li class="d-block post_list_item col-12 col-lg-5 ml-lg-5">
         <div class="post_header d-flex align-items-center py-2">
             <a href="{{ route('users.show', $post->user_id) }}">
                 <div class="profile_image">
@@ -104,21 +96,4 @@
 @endforelse
 </ul>
 </div>
-
-<script>
-function test() {
-//    navigator.geolocation.getCurrentPosition(test2);
-}
-
-function test2(position) {
-     //document.getElementById('longitude').value = position.coords.longitude;
-     //document.getElementById('latitude').value = position.coords.latitude;
-  //  location.href = '/posts/nearby/'+position.coords.longitude+'/'+position.coords.latitude;
-}
-
-//test();
-</script>
-
-
-
 @endsection

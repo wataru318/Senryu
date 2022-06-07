@@ -58,7 +58,7 @@
 @endif
     <ul class="d-flex row">    
 @forelse($user_posts as $user_post)
-    <li class="d-block post_list_item col-12 col-md-6">
+    <li class="d-block post_list_item col-12 col-lg-5 ml-lg-5">
         <div class="post_header d-flex align-items-center py-2">
             <a href="{{ route('users.show', $user_post->user_id) }}">
                 <div class="profile_image">
@@ -102,7 +102,7 @@
         </div>
         </div>
         <div class="d-flex justify-content-end">
-            <p class="location position"></p>
+            <p class="location position">緯度:{{$user_post->latitude}} 経度:{{$user_post->longitude}}で詠まれました</p>
             <a class="like_button pr-3" name="like">
                 @if($user_post->isLikedBy(\Auth::user()) === true)
                 <i class="on_icon fa-solid fa-bookmark"></i>
@@ -120,18 +120,9 @@
 投稿がありません。。。
 @endforelse
 </ul>
+<form class="pt-5" method="get" action="{{ route('posts.index') }}">
+    @csrf
+    <input class="btn btn-info" type="submit" value="戻る">
+</form>
 </div>
-<script>
-    function success(pos) {
-    const lat = pos.coords.latitude;
-    const lng = pos.coords.longitude;
-    $('.location').text(`緯度:${lat} 経度:${lng}で詠まれました`);
-}
-
-function fail(error) {
-    alert('位置情報の取得に失敗しました。');
-}
-
-navigator.geolocation.getCurrentPosition(success, fail);
-</script>
 @endsection

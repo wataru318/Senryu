@@ -7,7 +7,7 @@
   <h2>{{ $title }}</h2>
   <ul class="follow_list d-flex justify-content-center row">
       @forelse($followers as $follower)
-          <li class=" ml-2 mb-2 follow_list_item d-flex align-items-center">
+          <li class="col-12 col-md-4  ml-2 mb-2 follow_list_item d-flex align-items-center">
           <a href="{{ route('users.show', $follower->id) }}">
           <div class="profile_image">
           @if($follower->profile_image !== '')
@@ -17,7 +17,7 @@
           @endif
           </div>
           </a>
-            <a class="pl-3" href="{{ route('users.show', $follower->id) }}">{{ $follower->name }}</a>
+            <a class="pl-3 follower_name" href="{{ route('users.show', $follower->id) }}">{{ $follower->name }}</a>
             <div class="follow_list_item_details pl-3">
             @if(\Auth::id() !== $follower->id)
             @if(\Auth::user()->isFollowing($follower))
@@ -40,5 +40,9 @@
           <li>ふぉろーされているゆーざーはいません。</li>
       @endforelse
   </ul>
+  <form class="pt-5" method="get" action="{{ route('posts.index') }}">
+    @csrf
+    <input class="btn btn-info" type="submit" value="戻る">
+</form>
   </div>
 @endsection

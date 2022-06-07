@@ -7,7 +7,7 @@
     <h2>{{ $title }}</h2>
     <ul class="d-flex row">    
 @forelse($like_posts as $like_post)
-    <li class="d-block post_list_item col-12 col-md-6">
+    <li class="d-block post_list_item col-12 col-lg-5 ml-lg-5">
         <div class="post_header d-flex align-items-center py-2">
             <a href="{{ route('users.show', $like_post->user_id) }}">
                 <div class="profile_image">
@@ -69,6 +69,10 @@
 投稿がありません。。。
 @endforelse
 </ul>
+<form class="pt-5" method="get" action="{{ route('posts.index') }}">
+    @csrf
+    <input class="btn btn-info" type="submit" value="戻る">
+</form>
 </div>
 <script>
     function success(pos) {
