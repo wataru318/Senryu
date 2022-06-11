@@ -15,7 +15,7 @@ class TopSingleAction extends Controller
     public function __invoke()
     {
         return view('top.top', [
-            'title' => 'ココで'
+            'title' => 'ココで一句'
             ]);
     }
 }
